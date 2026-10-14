@@ -1,0 +1,18 @@
+flowchart TD
+    Start([시작: HTML 파일 준비]) --> Step1[1. 파일명 변경<br>석지우_html 2.html ➔ index.html]
+    
+    Step1 --> Choice{업로드 방식 선택}
+    
+    Choice -- Git CLI 사용 --> Git1[저장소 Clone<br>git clone https://...]
+    Git1 --> Git2[index.html 파일 폴더 이동]
+    Git2 --> Git3[Commit & Push<br>git add . / git commit / git push]
+    
+    Choice -- Web UI 사용 --> Web1[GitHub 저장소 접속]
+    Web1 --> Web2[Add file ➔ Upload files]
+    Web2 --> Web3[index.html 드래그 & Commit]
+    
+    Git3 --> Settings
+    Web3 --> Settings
+    
+    Settings[2. GitHub Pages 설정<br>Settings ➔ Pages ➔ Branch: main 선택 후 Save] --> Build[3. 자동 빌드 & 배포 진행<br>약 1~3분 소요]
+    Build --> Finish([배포 완료!<br>https://...github.io 접속 확인])
